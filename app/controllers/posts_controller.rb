@@ -3,7 +3,13 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    
+    @posts =
+      if params[:query].present?
+        Post.search_by_title_or_description(params[:query])
+      else
+        Post.all
+      end
   end
 
   # GET /posts/1 or /posts/1.json

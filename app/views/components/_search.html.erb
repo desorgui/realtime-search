@@ -1,0 +1,10 @@
+<%= form_tag posts_path, method: :get, class: 'd-flex mb-5', data: { controller: "search-form", turbo_frame: "posts", turbo_action: "advance" } do %>
+  <%= text_field_tag :query,
+    params[:query],
+    autocomplete: "off",
+    class: "form-control",
+    placeholder: "Find a Post...",
+    data: { action: "input->search-form#search"}
+  %>
+  <%= button_tag "Search", class: "btn btn-primary" %>
+<% end %>
