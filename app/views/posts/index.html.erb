@@ -1,10 +1,16 @@
 <p style="color: green"><%= notice %></p>
+<section class="search-form">
+  <%= render 'components/search' %>
+</section>
 
-<%= render 'components/search' %>
-
-<h1>Posts</h1>
-<div id="posts">
-  <%= render "posts", posts: @posts%>
-</div>
-<%= link_to "New post", new_post_path %>
-
+<section class="container mx-auto">
+  <% if params[:query]%>
+    <h1 class="section-title">Search Results</h1>
+  <% else %>
+    <h1 class="section-title">Latest Posts</h1>
+  <% end %>
+  <div id="posts">
+    <%= render "posts", posts: @posts%>
+  </div>
+  <%= link_to "New post", new_post_path %>
+</section>

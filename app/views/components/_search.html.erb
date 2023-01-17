@@ -3,8 +3,9 @@
     params[:query],
     autocomplete: "off",
     class: "form-control",
-    placeholder: "Find a Post...",
-    data: { action: "input->search-form#search"}
+    placeholder: "Search...",
+    data: { action: "input->search-form#search"},
+    focus: true
   %>
   <%= button_tag "Search", class: "btn btn-primary" %>
 <% end %>
