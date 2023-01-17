@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :searches
   resources :posts
   devise_for :users
   devise_scope :user do

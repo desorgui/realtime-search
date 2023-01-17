@@ -10,6 +10,12 @@ class PostsController < ApplicationController
       else
         Post.all
       end
+
+      if turbo_frame_request?
+        render partial: "posts", locals: { posts: @posts }
+      else
+        render :index
+      end
   end
 
   # GET /posts/1 or /posts/1.json
