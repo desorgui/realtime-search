@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :searches
+  resources :searches, only: [:index, :create]
   resources :posts
   devise_for :users
   devise_scope :user do

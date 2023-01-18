@@ -3,18 +3,11 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    
-    @posts =
-      if params[:query].present?
-        Post.search_by_title_or_description(params[:query])
+      if params[:query].present? && params[:query]&.length >= 3
+        @posts = Post.search_by_title_or_description(params[:query])
+        update_posts
       else
-        Post.all
-      end
-
-      if turbo_frame_request?
-        render partial: "posts", locals: { posts: @posts }
-      else
-        render :index
+        @posts = Post.all
       end
   end
 
@@ -38,7 +31,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
+        format.html { redirect_to posts_url, notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -71,13 +64,35 @@ class PostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def post_params
-      params.require(:post).permit(:title, :description, user: current_user)
+  def update_posts
+    render turbo_stream: turbo_stream.replace("posts", partial: "posts/posts", locals: { posts: @posts })
+  end
+
+  def record_query(query, user_id)
+    return unless query.present? && query.length >= 3
+
+    previous_query = File.read("query.txt").split || [""]
+
+    similarity_check = JaroWinkler.distance(query, previous_query[0], ignore_case: true) >= 0.85
+
+    if similarity_check
+      Thread.new do
+        sleep(5)
+      end
+    else
+      Search.create(query: query, user_id: user_id)
     end
+    File.write("query.txt", query, mode: "w")
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def post_params
+    params.require(:post).permit(:title, :description, user: current_user)
+  end
 end

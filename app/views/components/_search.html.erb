@@ -4,8 +4,7 @@
     autocomplete: "off",
     class: "form-control",
     placeholder: "Search...",
-    data: { action: "input->search-form#search"},
-    focus: true
+    data: { action: "input->search-form#search"}
   %>
-  <%= button_tag "Search", class: "btn btn-primary" %>
+  <%= submit_tag "Search", id: "submit", class: "btn btn-primary" %>
 <% end %>

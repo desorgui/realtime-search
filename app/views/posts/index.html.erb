@@ -4,13 +4,9 @@
 </section>
 
 <section class="container mx-auto">
-  <% if params[:query]%>
-    <h1 class="section-title">Search Results</h1>
-  <% else %>
     <h1 class="section-title">Latest Posts</h1>
-  <% end %>
   <div id="posts">
-    <%= render "posts", posts: @posts%>
+    <%= render "posts", posts: @posts %>
   </div>
   <%= link_to "New post", new_post_path %>
 </section>

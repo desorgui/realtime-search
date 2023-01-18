@@ -27,11 +27,17 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Use jaro_winkler for fuzzy string matching
+gem 'jaro_winkler', '~> 1.5'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
+
+# Use pg_search for full-text search.
+gem "pg_search"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -72,5 +78,3 @@ group :test do
 end
 
 gem 'devise'
-
-gem "pg_search"

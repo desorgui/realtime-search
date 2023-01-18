@@ -1,3 +1,9 @@
 <%= turbo_frame_tag "posts" do %>
-  <% render partial: posts %>
+  <% if @posts.nil? || @posts.empty? %>
+    <p class="no-post">
+      Your search - <%= params[:query] %> - did not match any posts.
+    </p>
+  <% else %>
+    <%= render @posts %>
+  <% end %>
 <% end %>
