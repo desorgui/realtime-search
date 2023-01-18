@@ -1,5 +1,5 @@
 :root {
-  --color-white: #ffffff;
+  --color-white: #fff;
   --color-light: #f1f5f9;
   --color-black: #121212;
   --color-night: #001632;
@@ -7,12 +7,15 @@
   --color-blue: #1a73e8;
   --color-gray: #80868b;
   --color-grayish: #dadce0;
-  --shadow-normal: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
-  	0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-  	0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-  	0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-normal:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-medium:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-large:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .hidden {

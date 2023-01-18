@@ -44,7 +44,6 @@ a {
   font-weight: 600;
   font-size: 1.1em;
   transition: all 0.8s;
-
 }
 
 .nav-link:hover {
@@ -61,7 +60,7 @@ form {
 .btn-primary {
   border: none;
   outline: none;
-  box-shadow: 2px 2px 5px #aaa
+  box-shadow: 2px 2px 5px #aaa;
 }
 
 .form-control {
