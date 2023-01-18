@@ -1,10 +1,9 @@
 class SearchesController < ApplicationController
-  before_action :set_search
   skip_before_action :verify_authenticity_token
 
   # GET /searches or /searches.json
   def index
-    @searches = Search.where(user: current_user).group(:query).order(count: :desc).count
+    @searches = Search.where(user: current_user).group(:query).order(count: :asc).count
   end
 
   def create
@@ -20,6 +19,7 @@ class SearchesController < ApplicationController
 
       respond_to do |format|
         if @search.save
+          format.html { redirect_to posts_url, notice: "Your search was successfully recorded." }
           format.json { render @posts, status: :created, location: @searches }
         else
           format.json { render json: @search.errors, status: :unprocessable_entity }
@@ -27,16 +27,4 @@ class SearchesController < ApplicationController
       end
     end
   end
-
-  private
-
-  # Use callbacks to share common setup or constraints between actions.
-
-  def set_search
-    @search = Search.find(params[:id])
-  end
-
-  # def search_params
-  #   params.require(:search).permit(query: params[:query], user: current_user)
-  # end
 end

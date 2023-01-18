@@ -1,0 +1,17 @@
+<section class="container mx-auto">
+  <header class="">
+    <h1 class="title">Search list</h1>
+  </header>
+
+  <div class="content">
+    <ul class="">
+      <% if @searches.empty? %>
+        <p class="empty">
+          &mdash;&nbsp; No searches &nbsp;&mdash;
+        </p>
+      <% else %>
+            <%= render "searches", searches: @searches %>
+      <% end %>
+    </ul>
+  </div>
+</section>
