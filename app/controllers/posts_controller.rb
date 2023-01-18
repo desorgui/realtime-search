@@ -1,19 +1,17 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_post, only: %i[show edit update destroy]
 
   # GET /posts or /posts.json
   def index
-      if params[:query].present? && params[:query]&.length >= 3
-        @posts = Post.search_by_title_or_description(params[:query])
-        update_posts
-      else
-        @posts = Post.all
-      end
+    if params[:query].present?
+      @posts = Post.search_by_title_or_description(params[:query])
+      update_posts
+    end
+    @posts = Post.all
   end
 
   # GET /posts/1 or /posts/1.json
-  def show
-  end
+  def show; end
 
   # GET /posts/new
   def new
@@ -21,8 +19,7 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /posts or /posts.json
   def create
@@ -31,7 +28,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to posts_url, notice: "Post was successfully created." }
+        format.html { redirect_to posts_url, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +41,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
+        format.html { redirect_to post_url(@post), notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,7 +55,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
+      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -66,27 +63,10 @@ class PostsController < ApplicationController
   private
 
   def update_posts
-    render turbo_stream: turbo_stream.replace("posts", partial: "posts/posts", locals: { posts: @posts })
+    render turbo_stream: turbo_stream.replace('posts', partial: 'posts/posts', locals: { posts: @posts })
   end
 
-  def record_query(query, user_id)
-    return unless query.present? && query.length >= 3
-
-    previous_query = File.read("query.txt").split || [""]
-
-    similarity_check = JaroWinkler.distance(query, previous_query[0], ignore_case: true) >= 0.85
-
-    if similarity_check
-      Thread.new do
-        sleep(5)
-      end
-    else
-      Search.create(query: query, user_id: user_id)
-    end
-    File.write("query.txt", query, mode: "w")
-  end
-
-  # Use callbacks to share common setup or constraints between actions.
+   # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
   end

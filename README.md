@@ -2,10 +2,10 @@
 
 <div align="center">
 
-  <img src="./murple_logo.png" alt="logo" width="140"  height="auto" />
+  <img src="./app/assets/images/Helpjuice_logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>Microverse Project</b></h3>
+  <h3><b>Take Home Project</b></h3>
 
 
   <!-- Badges -->
@@ -47,7 +47,7 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-  - :camera: [Screenshots](#screenshots)
+  <!-- - :camera: [Screenshots](#screenshots) -->
   - [🛠 Built With](#built-with)
     <!-- - [Tech Stack](#tech-stack) -->
     - [Key Features](#key-features)
@@ -76,7 +76,7 @@
 
 **[realtime-search]** Realtime-search is an application that allows you to search in real time in a list post
 
-## :camera: Screenshots <a name="screenshots"></a>
+<!-- ## :camera: Screenshots <a name="screenshots"></a> -->
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -196,13 +196,13 @@ Example command:
 --->
 
  ### :test_tube: Run tests <a name="Test"></a>
+To run unit and integration tests, run the following on the root project's directory:
+
+Run `rspec spec`
 
 To run Rubocop tests, run the following command:
 
-<!--
-Example command: -->
-
-  Run `rubocop -A`
+Run `rubocop --color`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

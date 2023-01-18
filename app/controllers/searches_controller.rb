@@ -7,7 +7,7 @@ class SearchesController < ApplicationController
   end
 
   def create
-    last_record = Search.where(user_id: current_user.id).last
+    last_record = Search.where(user_id: current_user.id).last || Search.new(query: ' ')
     similarity_check = JaroWinkler.distance(params[:query], last_record.query, ignore_case: true) >= 0.85
 
     if similarity_check
@@ -15,11 +15,11 @@ class SearchesController < ApplicationController
     else
       search_params = params.require(:search).permit(:query)
       @search = Search.new(search_params)
-      @search.user = current_user  
+      @search.user = current_user
 
       respond_to do |format|
         if @search.save
-          format.html { redirect_to posts_url, notice: "Your search was successfully recorded." }
+          format.html { redirect_to posts_url, notice: 'Your search was successfully recorded.' }
           format.json { render @posts, status: :created, location: @searches }
         else
           format.json { render json: @search.errors, status: :unprocessable_entity }
