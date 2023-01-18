@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
     it 'Should have a valid password' do
       expect(subject.password).to eq('123456')
     end
-  
+
     it 'Should not be valid without an email' do
       subject.email = nil
       expect(subject).to_not be_valid

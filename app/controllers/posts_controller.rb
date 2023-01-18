@@ -66,7 +66,7 @@ class PostsController < ApplicationController
     render turbo_stream: turbo_stream.replace('posts', partial: 'posts/posts', locals: { posts: @posts })
   end
 
-   # Use callbacks to share common setup or constraints between actions.
+  # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
   end

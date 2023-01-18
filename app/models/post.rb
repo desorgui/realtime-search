@@ -9,7 +9,7 @@ class Post < ApplicationRecord
                                                        threshold: 0.25
                                                      }
                                                    }
-  
+
   validates :title, presence: true
   validates :description, presence: true
 end

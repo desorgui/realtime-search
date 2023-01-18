@@ -31,17 +31,20 @@
   background: var(--color-white);
   box-shadow: var(--shadow-large);
 }
+
 .main .wrapper form {
   width: 100%;
   height: auto;
   margin-top: 2rem;
 }
+
 .main .wrapper form .input-control {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.25rem;
 }
+
 .main .wrapper form .input-field {
   font-family: inherit;
   font-size: 1rem;
@@ -58,6 +61,7 @@
   text-transform: unset;
   text-rendering: optimizeLegibility;
 }
+
 .main .wrapper form .input-submit {
   font-family: inherit;
   font-size: 1rem;
@@ -76,6 +80,7 @@
   text-transform: capitalize;
   text-rendering: optimizeLegibility;
 }
+
 .main .wrapper .striped {
   display: flex;
   flex-direction: row;
@@ -83,6 +88,7 @@
   align-items: center;
   margin: 1rem 0;
 }
+
 .main .wrapper .striped-line {
   flex: auto;
   flex-basis: auto;
@@ -91,6 +97,7 @@
   height: 2px;
   background: var(--color-grayish);
 }
+
 .main .wrapper .striped-text {
   font-family: inherit;
   font-size: 1rem;
@@ -99,9 +106,11 @@
   color: var(--color-black);
   margin: 0 1rem;
 }
+
 .main .wrapper .method-control {
   margin-bottom: 1rem;
 }
+
 .main .wrapper .method-action {
   font-family: inherit;
   font-size: 0.95rem;
@@ -122,6 +131,7 @@
   text-rendering: optimizeLegibility;
   transition: all 0.35s ease;
 }
+
 .main .wrapper .method-action:hover {
   background: var(--color-light);
 }
