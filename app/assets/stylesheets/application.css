@@ -100,6 +100,26 @@ form {
   border-radius: 1rem;
 }
 
+.history-search-header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-search-header .open-popup-btn {
+  background-color: #6bb8ffe3;
+  color: #fff;
+  font-size: 1.2em;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.history-search-header .open-popup-btn:hover {
+  background-color: #6bb7ff;
+}
+
 .search-list {
   list-style: none;
 }

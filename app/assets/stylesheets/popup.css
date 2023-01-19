@@ -1,0 +1,84 @@
+.popup-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  padding: 2rem;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+.send-history-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 0;
+}
+
+.send-history-form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.history-options-form-label {
+  font-size: 1.2em;
+  margin-bottom: 1rem;
+}
+
+.popup-email-input {
+  padding: 0.7rem;
+  font-size: 1em;
+  margin-bottom: 1rem;
+  border-radius: 2rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.popup-action .btn {
+  padding: 0.5rem 1rem;
+  font-size: 1em;
+  margin: 0.5rem;
+  border-radius: 2rem;
+  border: none;
+  outline: none;
+  background-color: #6bb7ff;
+  color: #fff;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s;
+}
+
+.popup-action .btn:hover {
+  background-color: #fff;
+  color: #6bb7ff;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.popup-close-btn.btn {
+  background-color: #fff;
+  color: #6bb7ff;
+  border: 1px solid #6bb7ff;
+}
+
+.popup-close-btn.btn:hover {
+  background-color: #6bb7ff;
+  color: #fff;
+}

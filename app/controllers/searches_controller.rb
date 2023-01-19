@@ -6,6 +6,12 @@ class SearchesController < ApplicationController
     @searches = Search.where(user: current_user).group(:query).order(count: :asc).count
   end
 
+  def send_history
+    @searches = Search.where(user: current_user).group(:query).order(count: :asc).count
+    SearchHistoryMailer.with(searches: @searches, email: params[:email]).new_history_email.deliver_now
+    redirect_to searches_path
+  end
+
   def create
     last_record = Search.where(user_id: current_user.id).last || Search.new(query: ' ')
     similarity_check = JaroWinkler.distance(params[:query], last_record.query, ignore_case: true) >= 0.85

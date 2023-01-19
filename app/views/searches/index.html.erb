@@ -1,6 +1,16 @@
 <section class="container mx-auto">
-  <header class="">
+  <header class="history-search-header d-flex">
     <h1 class="title">Search list</h1>
+    <%= button_to nil,
+            class: "open-popup-btn",
+            remote: true,
+            data: {
+              controller: "popup",
+              action: "popup#openPopup",
+              popup_id_param: "send-history-popup"
+            } do %>
+      Send search history copy
+    <% end %>
   </header>
 
   <div class="content">
@@ -15,3 +25,10 @@
     </ul>
   </div>
 </section>
+
+<%= render "components/history_popup",
+    popup_id: "send-history-popup",
+    form_route: searches_path(),
+    searches: @searches,
+    user_id: current_user.id
+  %>
