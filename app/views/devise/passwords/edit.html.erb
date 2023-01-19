@@ -9,7 +9,7 @@
         <%= f.hidden_field :reset_password_token %>
 
         <div class="input-control">
-          <%= f.label :password, class: "hidden", "New password" %><br />
+          <%= f.label :password, class: "hidden"%><br />
           <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em><br />
           <% end %>
@@ -17,7 +17,7 @@
         </div>
 
         <div class="input-control">
-          <%= f.label :password_confirmation, class: "hidden", "Confirm new password" %><br />
+          <%= f.label :password_confirmation, class: "hidden" %><br />
           <%= f.password_field :password_confirmation, class: "input-field", autocomplete: "new-password" %>
         </div>
 

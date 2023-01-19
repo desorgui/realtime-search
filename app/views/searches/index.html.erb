@@ -1,6 +1,6 @@
 <section class="container mx-auto">
   <header class="history-search-header d-flex">
-    <h1 class="title">Search list</h1>
+    <h1 class="title">Searches list</h1>
     <%= button_to nil,
             class: "open-popup-btn",
             remote: true,
@@ -9,7 +9,7 @@
               action: "popup#openPopup",
               popup_id_param: "send-history-popup"
             } do %>
-      Send search history copy
+      Send searches history copy
     <% end %>
   </header>
 
@@ -17,7 +17,7 @@
     <ul class="search-list">
       <% if @searches.empty? %>
         <p class="empty">
-          No searches yet, try searching for something and come back here.
+          No search yet, try searching for something and come back here.
         </p>
       <% else %>
             <%= render "searches", searches: @searches %>
