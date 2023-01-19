@@ -11,6 +11,16 @@
     </header>
     <% if searches.empty? %>
       <p>There is nothing to send.</p>
+      <%= button_to nil,
+              class: "popup-close-btn btn", 
+              remote: true,
+              data: {
+                controller: "popup",
+                action: "popup#closePopup",
+                popup_id_param: popup_id
+              } do %>
+              Close
+            <% end %>
     <% else %>
       <div class="history-options-form">
         <%= form_with url: searches_history_path, class: "send-history-form", data: { controller: "history", action: "history#send", history_email_param: "receiver_email" } do |form| %>
