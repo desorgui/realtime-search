@@ -10,15 +10,12 @@
 
         <div class="input-control">
           <%= f.label :password, class: "hidden"%><br />
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-          <% end %>
-          <%= f.password_field :password, class: "input-field", autofocus: true, autocomplete: "new-password" %>
+          <%= f.password_field :password, class: "input-field", placeholder: "Password: 6 characters minimum", autofocus: true, autocomplete: "new-password" %>
         </div>
 
         <div class="input-control">
           <%= f.label :password_confirmation, class: "hidden" %><br />
-          <%= f.password_field :password_confirmation, class: "input-field", autocomplete: "new-password" %>
+          <%= f.password_field :password_confirmation, placeholder: "Confirm password", class: "input-field", autocomplete: "new-password" %>
         </div>
 
         <div class="input-control">
