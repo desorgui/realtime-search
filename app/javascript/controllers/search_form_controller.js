@@ -6,6 +6,7 @@ export default class extends Controller {
     const input = document.getElementById("query");
 
     submit.addEventListener("click", () => {
+      if (input.value.length > 3) {
         fetch("/searches", {
           method: "POST",
           body: JSON.stringify({ query: input.value }),
@@ -17,11 +18,9 @@ export default class extends Controller {
         .then(data => {
           console.log(data);
         })
-    }
-  );
-    
+      }
+    });
     input.addEventListener("focusout", () => {
-      
       submit.click();
     });
   }
