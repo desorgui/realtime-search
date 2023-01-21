@@ -119,6 +119,7 @@
 - **[Real time search]**
 - **[Record user search]**
 - **[Show user search history]**
+- **[Send user search history to your email]**
 <!-- - **[key_feature_3]** -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
