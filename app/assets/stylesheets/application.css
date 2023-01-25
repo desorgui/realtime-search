@@ -125,6 +125,11 @@ form {
 }
 
 .search-item {
-  font-size: 1.5em;
-  margin-bottom: 1rem;
+}
+
+.search-item,
+.searhes-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
