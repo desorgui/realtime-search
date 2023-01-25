@@ -74,7 +74,7 @@
 
 <!-- > Describe your project in 1 or 2 sentences. -->
 
-**[realtime-search]** Realtime-search is an application that allows you to search in real time in a list post
+**[realtime-search]** is an application that allows you to search in real time in a list post
 
 <!-- ## :camera: Screenshots <a name="screenshots"></a> -->
 
@@ -119,6 +119,7 @@
 - **[Real time search]**
 - **[Record user search]**
 - **[Show user search history]**
+- **[Send user search history to your email]**
 <!-- - **[key_feature_3]** -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
