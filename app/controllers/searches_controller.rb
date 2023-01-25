@@ -14,9 +14,8 @@ class SearchesController < ApplicationController
 
   def create
     last_record = Search.where(user_id: current_user.id).last || Search.new(query: ' ')
-    similarity_check = JaroWinkler.distance(params[:query], last_record.query, ignore_case: true) >= 0.85
 
-    if similarity_check
+    if similarity_check(last_record.query, params[:query])
       last_record.update(query: params[:query])
     else
       search_params = params.require(:search).permit(:query)
@@ -32,5 +31,11 @@ class SearchesController < ApplicationController
         end
       end
     end
+  end
+
+  private
+
+  def similarity_check(last_record_query, params_query)  
+    JaroWinkler.distance(params_query, last_record_query, ignore_case: true) >= 0.85
   end
 end

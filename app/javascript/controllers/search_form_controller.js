@@ -7,21 +7,22 @@ export default class extends Controller {
 
     submit.addEventListener("click", () => {
       if (input.value.length > 3) {
-        fetch("/searches", {
-          method: "POST",
-          body: JSON.stringify({ query: input.value }),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-        })
+        this.postForm({ query: input.value })
       }
     });
+
     input.addEventListener("focusout", () => {
       submit.click();
+    });
+  }
+  
+  async postForm(data) {
+    await fetch("/searches", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
     });
   }
 
