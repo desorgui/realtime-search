@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
 
   # GET /searches or /searches.json
   def index
-    @searches = Search.where(user: current_user).group(:query).order(count: :asc).count
+    @searches = Search.where(user: current_user).group(:query).order(count: :desc).count
   end
 
   def send_history
