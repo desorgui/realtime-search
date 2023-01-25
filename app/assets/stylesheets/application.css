@@ -124,9 +124,6 @@ form {
   list-style: none;
 }
 
-.search-item {
-}
-
 .search-item,
 .searhes-list-header {
   display: flex;
