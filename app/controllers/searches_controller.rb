@@ -35,7 +35,7 @@ class SearchesController < ApplicationController
 
   private
 
-  def similarity_check(last_record_query, params_query)  
+  def similarity_check(last_record_query, params_query)
     JaroWinkler.distance(params_query, last_record_query, ignore_case: true) >= 0.85
   end
 end
