@@ -3,7 +3,7 @@
 <div align="center">
   <br/>
 
-  <h3><b>Blog Search Project</b></h3>
+  <h3><b>Realtime Search</b></h3>
 
 
   <!-- Badges -->
@@ -72,7 +72,12 @@
 
 <!-- > Describe your project in 1 or 2 sentences. -->
 
-**[realtime-search]** is an application that allows you to search in real time in a list post
+**[realtime-search]** a full-stack web application using Ruby on Rails and plain CSS.
+- Integrated the Devise gem for user authentication to ensure secure access to the application.
+- Implemented efficient search functionality using Jarowrinkler and PgSearch to provide accurate and relevant search results for users.
+- Utilized Turbo Frame Tag, Stimulus, and Hotwire to improve the user experience by providing real-time updates and avoiding full-page reloads.
+- Included an analytics feature that lists the most searched terms by users to help them refine their searches accordingly.
+- Implemented a mailer feature using Ruby on Rails Action Mailer and the Gmail SMTP server to enable users to receive a regular summary of their search history via email.
 
 <!-- ## :camera: Screenshots <a name="screenshots"></a> -->
 
