@@ -1,11 +1,9 @@
 <a name="readme-top"></a>
 
 <div align="center">
-
-  <img src="./app/assets/images/Helpjuice_logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>Take Home Project</b></h3>
+  <h3><b>Blog Search Project</b></h3>
 
 
   <!-- Badges -->
