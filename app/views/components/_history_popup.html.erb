@@ -1,0 +1,60 @@
+<div 
+  class="popup hidden"
+  id=<%= popup_id %>
+>
+  <div class="popup-overlay"></div>
+  <div class="popup-window d-flex">
+    <header class="popup-header">
+      <h2 class="popup-title">
+        Send searches history
+      </h2>
+    </header>
+    <% if searches.empty? %>
+      <p>There is nothing to send.</p>
+      <%= button_to nil,
+              class: "popup-close-btn btn", 
+              remote: true,
+              data: {
+                controller: "popup",
+                action: "popup#closePopup",
+                popup_id_param: popup_id
+              } do %>
+              Close
+            <% end %>
+    <% else %>
+      <div class="history-options-form">
+        <%= form_with url: searches_history_path, class: "send-history-form", data: { controller: "history", action: "history#send", history_email_param: "receiver_email" } do |form| %>
+          <div class="form-group">
+            <label
+              for="receiver_email"
+              class="history-options-form-label"
+            >
+              Email:
+            </label>
+            <input 
+              id="receiver_email"
+              placeholder="Enter your email..."
+              type="email"
+              name="email"
+              class="popup-email-input"
+              required
+            >
+          </div>
+          <div class="popup-action">
+            <%= submit_tag "Send History", class: "btn"%>
+            <%= button_to nil,
+              class: "popup-close-btn btn", 
+              remote: true,
+              data: {
+                controller: "popup",
+                action: "popup#closePopup",
+                popup_id_param: popup_id
+              } do %>
+              Cancel
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div> 
+</div>

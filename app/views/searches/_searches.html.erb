@@ -1,0 +1,17 @@
+<%= turbo_frame_tag "searches" do %>
+  <% if @searches.nil? || @searches.empty? %>
+    <p class="no-post">
+      No searches yet.
+    </p>
+  <% else %>
+  <header class="searhes-list-header">
+    <h3>Searches query</h3>
+    <h3>Searches Repetition</h3>
+  </header>
+    <% @searches.entries.each do |title, count| %>
+          <li>
+            <%= render "search", search: {title:, count:} %>
+          </li>
+        <% end %>
+  <% end %>
+<% end %>

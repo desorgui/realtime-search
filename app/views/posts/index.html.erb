@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+<section class="search-form">
+  <%= render 'components/search' %>
+</section>
+
+<section class="container mx-auto">
+    <h1 class="section-title">Latest Posts</h1>
+  <div id="posts">
+    <%= render "posts", posts: @posts %>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+<main class="main">
+	<div class="container mx-auto">
+		<section class="wrapper">
+		<div class="heading">
+      <h2>Log in</h2>
+      <p class="text text-normal">New user? <span><%= link_to "Create an account", new_user_registration_path, class: "text text-links" %></span></p>
+    </div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form") do |f| %>
+      <div class="input-control">
+        <%= f.label :email, class: "hidden" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-field", placeholder: "Your Email..." %>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :password, class: "hidden" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "input-field", placeholder: "Your Password..." %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="input-control">
+        <%= link_to "Forgot Password", new_user_password_path, class: "text text-links" %>
+        <%= f.submit "Log in", class: "input-submit" %>
+      </div>
+    <% end %>
+		</section>
+	</div>
+</main>
